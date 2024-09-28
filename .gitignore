@@ -1,0 +1,14 @@
+# Ignore the virtual environment
+ocr_env/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore .env files (if applicable)
+.env
+
+# Ignore any other files or directories you don't want to track
