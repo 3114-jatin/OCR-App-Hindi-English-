@@ -7,18 +7,17 @@ WORKDIR /app
 # Install Tesseract OCR and other dependencies
 RUN apt-get update && \
     apt-get install -y tesseract-ocr tesseract-ocr-hin && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/* && \
+    tesseract --version  # Check Tesseract installation
 
 # Copy the current directory contents into the container at /app
 COPY . .
 
 # Upgrade pip and install any needed packages specified in requirements.txt
-RUN pip install --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on
 EXPOSE 8501
 
 # Run the application
-CMD ["streamlit", "run", "your_app.py"]  # Replace your_app.py with your actual main file
+CMD ["streamlit", "run", "app.py"]  # Replace your_app.py with your actual main file
