@@ -1,6 +1,7 @@
 import streamlit as st
-from ocr_processing import perform_ocr
+from ocr_processing import perform_ocr, preprocess_image
 from search_function import search_keywords
+from PIL import Image
 
 # Title and description
 st.title('OCR Web Application (Hindi & English)')
@@ -12,8 +13,11 @@ uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if uploaded_file:
     st.image(uploaded_file, caption="Uploaded Image", use_column_width=True)
     
-    # Perform OCR on the uploaded image
-    extracted_text = perform_ocr(uploaded_file)
+    # Preprocess the uploaded image for better OCR accuracy
+    preprocessed_image = preprocess_image(uploaded_file)
+    
+    # Perform OCR on the preprocessed image
+    extracted_text = perform_ocr(preprocessed_image)
     
     # Check if OCR returned valid text
     if extracted_text:
@@ -33,6 +37,3 @@ if uploaded_file:
                 st.write(f"No matching keywords found for '{keyword}'.")
     else:
         st.write("No text could be extracted from the image. Please try again with a clearer image.")
-
-
-
