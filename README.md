@@ -96,20 +96,15 @@ Copy code
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 Images of App deployed on streamlit
+![image](https://github.com/user-attachments/assets/79f9780b-f726-49ba-8038-7978de3b3808)
 
- 
-
- 
-
-
-
+![image](https://github.com/user-attachments/assets/37620473-6261-4889-8c73-070405dfebd8)
 
 Images from app deployed on Local
 
+![image](https://github.com/user-attachments/assets/897675a1-d654-4a65-adcc-f7d25b4226e7)
+
 ![image](https://github.com/user-attachments/assets/71283168-73eb-4c91-b691-94b3e8fdb82a)
-
- 
-
 
  
 Contributing
