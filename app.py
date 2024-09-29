@@ -35,4 +35,3 @@ if uploaded_file:
         st.write("No text could be extracted from the image. Please try again with a clearer image.")
 
 
-
