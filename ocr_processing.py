@@ -20,7 +20,11 @@ def preprocess_image(image):
     # Apply binary thresholding to get a binary image
     _, thresh = cv2.threshold(blurred, 150, 255, cv2.THRESH_BINARY)
 
-    return thresh
+    # Optional: Erode and Dilate to clean up small noise
+    kernel = np.ones((3, 3), np.uint8)
+    clean = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+
+    return clean
 
 def perform_ocr(uploaded_file):
     try:
@@ -42,8 +46,11 @@ def perform_ocr(uploaded_file):
         # Perform OCR using Hugging Face model
         huggingface_result = ocr_pipeline(huggingface_image)
 
+        # Extract text from Hugging Face model's output
+        huggingface_text = huggingface_result[0]['text'] if huggingface_result else ""
+
         # Combine results from both Tesseract and Hugging Face
-        extracted_text = tesseract_text + "\n" + huggingface_result
+        extracted_text = tesseract_text + "\n" + huggingface_text
 
         return extracted_text.strip()  # Remove any leading/trailing whitespace
 
