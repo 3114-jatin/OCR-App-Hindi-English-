@@ -22,6 +22,7 @@ mpmath
 narwhals
 networkx
 numpy
+opencv-python
 packaging
 pandas
 pillow
