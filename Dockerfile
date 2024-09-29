@@ -4,9 +4,13 @@ FROM python:3.8-slim
 # Set the working directory
 WORKDIR /app
 
-# Install Tesseract OCR and other dependencies
-RUN apt-get update && \
-    apt-get install -y tesseract-ocr tesseract-ocr-hin && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Install Tesseract and language packages
+RUN apt-get update && apt-get install -y \
+    tesseract-ocr \
+    tesseract-ocr-hin \
+    tesseract-ocr-eng \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the current directory contents into the container at /app
 COPY . .
