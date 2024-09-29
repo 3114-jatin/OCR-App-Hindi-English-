@@ -18,4 +18,4 @@ RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 EXPOSE 8501
 
 # Run the application
-CMD ["streamlit", "run", "your_app.py"]  # Replace your_app.py with your actual main file
+CMD ["streamlit", "run", "app.py"]  # Replace your_app.py with your actual main file
