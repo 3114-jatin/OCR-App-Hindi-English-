@@ -22,7 +22,7 @@ mpmath
 narwhals
 networkx
 numpy
-opencv-python
+opencv-python  # Added OpenCV
 packaging
 pandas
 pillow
